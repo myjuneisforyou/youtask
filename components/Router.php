@@ -9,6 +9,7 @@ class Router {
         $this->routes = include($routesPath); //занесения массива routes.php в $routes
     }
     
+    
     //Получает строку запроса клиента
     private function getURI(){
         if(!empty($_SERVER['REQUEST_URI'])){
