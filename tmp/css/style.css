@@ -1,0 +1,241 @@
+@font-face{
+	font-family: 'Oswald-Regular';
+	src: url('../fonts/Oswald-Regular.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+*{
+	list-style: none;
+	text-decoration: none;
+	margin: 0;
+	padding: 0;
+}
+html,body {
+	height: 100%;
+}
+
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -60px; 
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+.wrap {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -218px; 
+}
+.wrap:after {
+  content: "";
+  display: block;
+}
+
+/*login and signup*/
+.signup_header{
+	height: 62px;
+	line-height: 60px;
+	font-size: 16px;
+	font-family: 'Oswald-Regular',sans-serif;
+	background-color: #fff;
+	box-shadow: 0 6px 10px -4px #d6d5d5;
+}
+.signup_header a{
+	letter-spacing: 1px;
+}
+.signup_container{
+	background: white;
+        border-radius: 3px;
+    border: 1px solid #DDD;
+    padding: 32px 30px;
+    margin: 50px auto;
+    width: 475px;
+    box-shadow: -1px 5px 10px #d6d5d5;
+}
+.signup_container p{
+	text-align: center;
+}
+.signup_container h3{
+        font-family: 'Oswald-Regular',sans-serif;
+	text-align: center;
+	font-weight: bold;
+	margin-top: 0;
+}
+.signup_container button{
+	height: 48px;
+	margin-top: 15px;
+}
+.btn-signin{
+	width: 413px;
+}
+.btn-signup{
+	width: 150px;
+}
+.btn-signup, .btn-signin{
+	font-size: 18px ;
+	font-family: 'Oswald-Regular',sans-serif;
+}
+.signup_container input{
+	height: 48px;
+}
+
+/*login footer*/
+.signin-footer, .page-wrap:after {
+  	height: 60px; 
+}
+.signin-footer{
+	background-color: #fff;
+	font-family: 'Oswald-Regular',sans-serif;
+	font-size: 20px;
+	color: #000;
+	text-align: center;
+	line-height: 60px;
+	box-shadow: 0 6px 10px 8px #d6d5d5;
+}
+.signin-footer p {
+    margin: 0;
+}
+
+/* index header */
+.header{
+	margin-bottom: 20px;
+	font-size: 16px;
+	font-family: 'Oswald-Regular',sans-serif;
+	background-color: #fff;
+	background: #232323;
+}
+.navbar{
+	padding: 10px 0;
+	margin-bottom: 0;
+}
+.header ul{
+	float: right;
+}
+
+/* main content */
+.main_content{
+	color: white;
+	font-family: 'Oswald-Regular',sans-serif;
+}
+
+/* sort */
+.checkbox label {
+	margin: 5px 0;
+}
+.checkbox .btn-sort{
+	width: 80px;
+	margin-top: 10px;
+}
+
+/* task list */
+.stripe{
+	max-width: 800px;
+	height: 30px;
+	line-height: 30px;
+	background: #1b1b1b;
+	padding: 0 10px;
+}
+.board{
+	min-height: 250px;
+	max-width: 800px;
+	background: #fff;
+	background-color: #f3f3d1;
+	padding: 10px;
+	color: #000;
+}
+.board img{
+	max-width: 320px;
+	max-height: 240px; 
+	padding: 0 10px 10px 0;
+}
+pre{
+        white-space: pre-wrap;       /* css-3 */
+        white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+        white-space: -pre-wrap;      /* Opera 4-6 */
+        white-space: -o-pre-wrap;    /* Opera 7 */
+        word-wrap: break-word;       /* Internet Explorer 5.5+ */
+	border: 0; 
+	background-color: transparent;
+	padding: 0;
+	margin: 0;
+	font-family: 'Oswald-Regular',sans-serif;
+	color: #000;
+	font-size: 16px;
+}
+textarea{
+	width: 700px;
+}
+/* pagination */
+#pagination{
+	text-align: center;
+}
+.pagination > li > a, .pagination > li > span {
+	background-color: #232323 !important;
+    border: 1px solid #000 !important;
+    color: #fff !important;
+}
+.pagination li a:hover {
+	background: #2b2929  !important;
+}
+/* footer */
+.footer, .wrap:after {
+  	height: 218px; 
+}
+.footer{
+	background-color: #232323;
+	font-family: 'Oswald-Regular',sans-serif;
+	font-size: 20px;
+	color: #000;
+	text-align: center;
+	box-shadow: 0 6px 10px 8px #000;
+	color: #fff;
+}
+.footer p{
+	margin: 0;
+}
+.footer ul{
+	text-align: left;
+	line-height: 35px;
+}
+.footer ul li a{
+	color: #9d9d9d;
+	text-decoration: none;
+	font-size: 16px;
+}
+.footer ul li a:hover{
+	color: #fff;
+}
+.footer_floor{
+	height: 60px;
+	line-height: 60px;
+	background-color: #1b1a1a;
+}
+
+/* create task */
+.creation{
+	max-width: 500px;
+	color: #fff;
+	font-family: 'Oswald-Regular',sans-serif;
+}
+.form-control{
+    color: #000;
+    font-size: 16px;
+}
+.creation label, .creation span{
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.creation button{
+	margin-bottom: 20px;
+	width: 100px;
+	font-size: 16px;
+}
+.creation textarea{
+	font-size: 16px;
+	color: #000;
+}
+input[type="file"]{
+	background: #fff;
+	color: #000;
+}
