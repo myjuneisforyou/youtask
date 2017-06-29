@@ -95,23 +95,23 @@ class TaskController {
       
     }
     
-    public function actionCompleted($page = 1){
+    public function actionCompleted(){
         
         $userId = User::checkLogged();
         
-        $completedTask = Task::completedTasks($page);
+        $completedTask = Task::completedTasks();
         
         //$taskboard = Task::getTask(); //show by default
         $sort_by = isset($_POST['sort_by']) ? $_POST['sort_by'] : 'latest';
 
         if($sort_by == 'useremail'){
-            $completedTask = Task::sortByEmailStatus($page);
+            $completedTask = Task::sortByEmailStatus();
         }
         if($sort_by == 'username'){
-            $completedTask = Task::sortByNameStatus($page);
+            $completedTask = Task::sortByNameStatus();
         }
        if($sort_by == 'latest'){
-            $completedTask = Task::completedTasks($page);
+            $completedTask = Task::completedTasks();
         }
         
         require_once(ROOT.'/views/task/completed.php');

@@ -5,24 +5,24 @@ include_once (ROOT.'/models/Task.php');
 
 class IndexController{
     
-    public function actionIndex($page = 1){
+    public function actionIndex(){
         
         $userId = User::checkLogged();
         
-        $taskboard = Task::getTask($page); //show by default
+        $taskboard = Task::getTask(); //show by default
         $sort_by = isset($_POST['sort_by']) ? $_POST['sort_by'] : 'latest';
 
         if($sort_by == 'useremail'){
-            $taskboard = Task::sortByEmail($page);
+            $taskboard = Task::sortByEmail();
         }
         if($sort_by == 'latest'){
-            $taskboard = Task::getTask($page);
+            $taskboard = Task::getTask();
         }
         if($sort_by == 'username'){
-            $taskboard = Task::sortByName($page);
+            $taskboard = Task::sortByName();
         }
         if($sort_by == 'status'){
-            $taskboard = Task::sortByStatus($page);
+            $taskboard = Task::sortByStatus();
         }
 
         require_once (ROOT.'/views/index/index.php');

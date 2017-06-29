@@ -37,156 +37,65 @@ class Task {
     }
     
     //echo TASK from db to our page
-    public static function getTask($page = 1){
+    public static function getTask(){ //($page = 1)
        
-        $page = intval($page);
-        $offset = ($page - 1) * 3;
+        /*$page = intval($page);
+        $offset = ($page - 1) * 3;*/
         
         $db = Db::getConnection();
-        $taskList = [];
        
-        $result = $db->query('SELECT id, user_name, user_email, title, image, tasktext, status FROM task '
-                . 'ORDER BY status DESC LIMIT 3 OFFSET ' . $offset );
+        $result = $db->query('SELECT * FROM task ORDER BY status DESC');
 
-        $i = 0;
-        while ($row = $result->fetch()) {
-            $taskList[$i]['id'] = $row['id'];
-            $taskList[$i]['user_name'] = $row['user_name'];
-            $taskList[$i]['user_email'] = $row['user_email'];
-            $taskList[$i]['title'] = $row['title'];
-            $taskList[$i]['image'] = $row['image'];
-            $taskList[$i]['tasktext'] = $row['tasktext'];
-            $taskList[$i]['status'] = $row['status'];
-            $i++;
-        }
-        return $taskList;
+        return $result->fetchAll();
     }
     
     //sort by user name ASC
-    public static function sortByName($page = 1){
-        
-        $page = intval($page);
-        $offset = ($page - 1) * 3;
+    public static function sortByName(){
         
         $db = Db::getConnection();
-        $taskList = [];
         
-        $result = $db->query('SELECT id, user_name, user_email, title, image, tasktext, status FROM task '
-                . 'ORDER BY user_name ASC LIMIT 3 OFFSET ' . $offset );
-        $i = 0;
-        while ($row = $result->fetch()) {
-            $taskList[$i]['id'] = $row['id'];
-            $taskList[$i]['user_name'] = $row['user_name'];
-            $taskList[$i]['user_email'] = $row['user_email'];
-            $taskList[$i]['title'] = $row['title'];
-            $taskList[$i]['image'] = $row['image'];
-            $taskList[$i]['tasktext'] = $row['tasktext'];
-            $taskList[$i]['status'] = $row['status'];
-            $i++;
-        }
-        return $taskList;
+        $result = $db->query('SELECT * FROM task ORDER BY user_name ASC');
+
+        return $result->fetchAll();
     }
     
     //sort by user name ASC
-    public static function sortByNameStatus($page = 1){
-        
-        $page = intval($page);
-        $offset = ($page - 1) * 3;
+    public static function sortByNameStatus(){
         
         $db = Db::getConnection();
-        $taskList = [];
         
-        $result = $db->query('SELECT id, user_name, user_email, title, image, tasktext, status FROM task '
-                . 'WHERE status = "Completed" ORDER BY user_name ASC');
-        $i = 0;
-        while ($row = $result->fetch()) {
-            $taskList[$i]['id'] = $row['id'];
-            $taskList[$i]['user_name'] = $row['user_name'];
-            $taskList[$i]['user_email'] = $row['user_email'];
-            $taskList[$i]['title'] = $row['title'];
-            $taskList[$i]['image'] = $row['image'];
-            $taskList[$i]['tasktext'] = $row['tasktext'];
-            $taskList[$i]['status'] = $row['status'];
-            $i++;
-        }
-        return $taskList;
+        $result = $db->query('SELECT * FROM task WHERE status = "Completed" ORDER BY user_name ASC');
+
+        return $result->fetchAll();
     }
     
     //sort by user email ASC
-    public static function sortByEmail($page = 1){
-        
-        
-        
-        $page = intval($page);
-        $offset = ($page - 1) * 3;
+    public static function sortByEmail(){
         
         $db = Db::getConnection();
-        $taskList = [];
         
-        $result = $db->query('SELECT id, user_name, user_email, title, image, tasktext, status FROM task '
-                . 'ORDER BY user_email ASC LIMIT 3 OFFSET ' . $offset );
-        $i = 0;
-        while ($row = $result->fetch()) {
-            $taskList[$i]['id'] = $row['id'];
-            $taskList[$i]['user_name'] = $row['user_name'];
-            $taskList[$i]['user_email'] = $row['user_email'];
-            $taskList[$i]['title'] = $row['title'];
-            $taskList[$i]['image'] = $row['image'];
-            $taskList[$i]['tasktext'] = $row['tasktext'];
-            $taskList[$i]['status'] = $row['status'];
-            $i++;
-        }
-        return $taskList;
+        $result = $db->query('SELECT * FROM task ORDER BY user_email ASC');
+
+        return $result->fetchAll();
     }
     
     //sort by user email ASC WHERE STATUS = COMPLETED
-    public static function sortByEmailStatus($page = 1){
-        
-        $page = intval($page);
-        $offset = ($page - 1) * 3;
-        
+    public static function sortByEmailStatus(){
+ 
         $db = Db::getConnection();
-        $taskList = [];
         
-        $result = $db->query('SELECT id, user_name, user_email, title, image, tasktext, status FROM task '
-                . 'WHERE status = "Completed" ORDER BY user_email ASC LIMIT 3 OFFSET ' . $offset );
-        $i = 0;
-        while ($row = $result->fetch()) {
-            $taskList[$i]['id'] = $row['id'];
-            $taskList[$i]['user_name'] = $row['user_name'];
-            $taskList[$i]['user_email'] = $row['user_email'];
-            $taskList[$i]['title'] = $row['title'];
-            $taskList[$i]['image'] = $row['image'];
-            $taskList[$i]['tasktext'] = $row['tasktext'];
-            $taskList[$i]['status'] = $row['status'];
-            $i++;
-        }
-        return $taskList;
+        $result = $db->query('SELECT * FROM task WHERE status = "Completed" ORDER BY user_email ASC');
+
+        return $result->fetchAll();
     }
     
     //sort by status DESC
-    public static function sortByStatus($page = 1){
-
-        $page = intval($page);
-        $offset = ($page - 1) * 3;
-        
+    public static function sortByStatus(){
         $db = Db::getConnection();
-        $taskList = [];
         
-        $result = $db->query('SELECT id, user_name, user_email, title, image, tasktext, status FROM task '
-                . 'ORDER BY status DESC LIMIT 3 OFFSET ' . $offset );
-        $i = 0;
-        while ($row = $result->fetch()) {
-            $taskList[$i]['id'] = $row['id'];
-            $taskList[$i]['user_name'] = $row['user_name'];
-            $taskList[$i]['user_email'] = $row['user_email'];
-            $taskList[$i]['title'] = $row['title'];
-            $taskList[$i]['image'] = $row['image'];
-            $taskList[$i]['tasktext'] = $row['tasktext'];
-            $taskList[$i]['status'] = $row['status'];
-            $i++;
-        }
-        return $taskList;
+        $result = $db->query('SELECT * FROM task ORDER BY status DESC');
+        
+        return $result->fetchAll();
     }
     
     //need to edit task (connect task's id to output task)
@@ -196,18 +105,11 @@ class Task {
         if ($infoid) {
 
             $db = Db::getConnection();            
-            $info = array();
+            
             $result = $db->query("SELECT title, image, tasktext, status FROM task "
                     . "WHERE id = '$infoid'");
-            $i = 0;
-            while ($row = $result->fetch()) {
-                $info[$i]['title'] = $row['title'];
-                $info[$i]['image'] = $row['image'];
-                $info[$i]['tasktext'] = $row['tasktext'];
-                $info[$i]['status'] = $row['status'];
-                $i++;
-            }
-            return $info;       
+            
+            return $result->fetchAll();
         }
     }
     
@@ -234,34 +136,18 @@ class Task {
         
         $result = $db->prepare($sql);
         $result->bindParam(':id', $id, PDO::PARAM_INT);
-        //$result->bindParam(':status', 'Completed', PDO::PARAM_STR);
    
         return $result->execute();
     }
     
-    //take task with status Completed
-    public static function completedTasks($page = 1){
-        
-        $page = intval($page);
-        $offset = ($page - 1) * 3;
-        
+    // <url>/completed
+    public static function completedTasks(){
+          
         $db = Db::getConnection();
-        $taskList = [];
         
-        $result = $db->query('SELECT id, user_name, user_email, title, image, tasktext, status FROM task '
-                . 'WHERE status = "Completed" ORDER BY id DESC LIMIT 3 OFFSET ' . $offset );
-        $i = 0;
-        while ($row = $result->fetch()) {
-            $taskList[$i]['id'] = $row['id'];
-            $taskList[$i]['user_name'] = $row['user_name'];
-            $taskList[$i]['user_email'] = $row['user_email'];
-            $taskList[$i]['title'] = $row['title'];
-            $taskList[$i]['image'] = $row['image'];
-            $taskList[$i]['tasktext'] = $row['tasktext'];
-            $taskList[$i]['status'] = $row['status'];
-            $i++;
-        }
-        return $taskList;
+        $result = $db->query('SELECT * FROM task WHERE status = "Completed" ORDER BY id DESC');
+
+        return $result->fetchAll();
     }
     
 }
