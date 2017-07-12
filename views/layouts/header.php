@@ -7,8 +7,8 @@
 	<link rel="stylesheet" type="text/css" href="../tmp/css/bootstrap-theme.css">
 	<link rel="stylesheet" type="text/css" href="../tmp/css/style.css">
 	<link rel="icon" href="../tmp/img/icon.png">
-        <script src="../tmp/js/jquery-3.2.1.min.js"></script>
-	<script src="../tmp/js/bootstrap.js"></script>	
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
 </head>
 <body style="background: #2b2929;">
 <div class="wrap">
